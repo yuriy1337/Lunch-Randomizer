@@ -34,7 +34,7 @@ if (isset($_POST['name'])) {
   }
 
   if($canAddThisEntry) {
-    $qry = 'INSERT INTO categories (category) VALUES (\'' . newCategory . ')';
+    $qry = 'INSERT INTO categories (category) VALUES (\'' . $newCategory . '\')';
     runQuery($qry);
   }
 }
@@ -47,10 +47,12 @@ $qry = '
   ORDER BY category';
 $result = runQuery($qry);
 
-$categories = '';
+$categories = "";
 for($i = 0; $row = mysql_fetch_assoc($result); $i ++) {
-  $categories .= '$row['categoryID']'; //. ' ' . '$row['category'] <\br>';
+  $categories .= $row['category'] . '</br>';
 }
+
+$test = "hello";
 
 ?>
 
@@ -58,10 +60,10 @@ for($i = 0; $row = mysql_fetch_assoc($result); $i ++) {
   <head>
   </head>
   <body>
-    <?php $categories ?>
     <form action="add_category.php" method="post">
       <p>Name of Category: <input type="text" name="name" /></p>
       <input type="submit" value="Submit" />
     </form>
+    <div>Current Options Are:</br> <?php echo $categories ?></div>
   </body>
 </html>

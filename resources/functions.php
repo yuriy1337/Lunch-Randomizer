@@ -22,7 +22,7 @@ function sanitize_input($var) {
 // -------------------- MySQL methods ------------------------
 
 function connectToDatabase() {
-  $con = mysql_connect('localhost', 'root', 'root');
+  $con = mysql_connect('localhost', 'root', '');
   if (!$con) { die('Could not connect: ' . mysql_error()); }
   mysql_select_db('lunch', $con) or die('Could not select database.');
 
