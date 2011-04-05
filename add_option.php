@@ -9,21 +9,24 @@ Modified By: Patrick Swanson
 Description: 
 
 Created: 03/21/2011
-Modified: 03/22/2011
+Modified: 04/05/2011
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 */
 
 session_start();
 include('resources/functions.php');
+$errorText = '';
 
 connectToDatabase();
 
-if (isset($_POST['name'])) { 
+if (isset($_POST['name'])) {
   $newLocation = sanitize_input($_POST['name']);
-  $category = sanitize_input($_POST['category']);
+  $categoryID = sanitize_input($_POST['category']);
 
-  // Now add the new option.
-  $canAddThisEntry = true;
+  // If they didn't enter something valid, we return an error.
+  if($newLocation == '') {
+    $errorText = 'You need to provide the name of the place to add.';
+  }
 
   // Check to see if this entry already exists.
   $qry = '
@@ -32,12 +35,11 @@ if (isset($_POST['name'])) {
     WHERE name = \'' . $newLocation . '\'';
   $result = runQuery($qry);
   if(mysql_num_rows($result)) {
-    echo 'The entry: \'' . $newLocation . '\' already exists.';
-    $canAddThisEntry = false;
+    $errorText = 'The entry: \'' . $newLocation . '\' already exists.';
   }
 
-  if($canAddThisEntry) {
-    $qry = 'INSERT INTO options (name, categoryID) VALUES (\'' . $newLocation . '\', ' . $category . ')';
+  if($errorText == '') {
+    $qry = 'INSERT INTO options (name, categoryID) VALUES (\'' . $newLocation . '\', ' . $categoryID . ')';
     runQuery($qry);
   }
 }
@@ -61,6 +63,7 @@ for($i = 0; $row = mysql_fetch_assoc($result); $i ++) {
   <head>
   </head>
   <body>
+    <p style="color:red;"><?php echo $errorText; ?></p>
     <form action="add_option.php" method="post">
       <p>Name of Place: <input type="text" name="name" /></p>
       <p>Category: 
