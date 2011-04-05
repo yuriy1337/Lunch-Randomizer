@@ -9,7 +9,7 @@ Original Author: Patrick Swanson
 Description: Shows all of the options to the user, sorted alphabetically.
 
 Created: 03/22/2011
-Modified: 
+Modified: 04/05/2011
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 */
 
@@ -21,6 +21,7 @@ connectToDatabase();
 $qry = '
   SELECT name, category
   FROM options NATURAL JOIN categories
+  WHERE availability = \'non-Catered\' OR availability = \'Either\'
   ORDER BY name';
 $result = runQuery($qry);
 

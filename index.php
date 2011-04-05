@@ -9,7 +9,7 @@ Modified By: Patrick Swanson
 Description: 
 
 Created: 03/21/2011
-Modified: 03/31/2011
+Modified: 04/05/2011
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 */
 
@@ -49,10 +49,6 @@ if(isset($_POST['username'])) {
 */
 //} else {
 ?>
-  <a href="add_option.php">Add a lunch option</a>
-  <br />
-  <a href="add_category.php">Add a category</a>
-  <br />
   <a href="get_option.php">Pick a random menu option</a>
   <br />
   <a href="view_all_options.php">View list of all lunch options</a>

@@ -9,7 +9,7 @@ Modified By: Patrick Swanson
 Description: 
 
 Created: 
-Modified: 03/22/2011
+Modified: 04/05/2011
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 */
 
@@ -19,7 +19,7 @@ include('resources/functions.php');
 connectToDatabase();
 
 // Display how many choices there are.
-$qry = 'SELECT count(*) AS numOptions FROM options';
+$qry = 'SELECT count(*) AS numOptions FROM options WHERE availability != \'Catered\'';
 $result = runQuery($qry);
 $row = mysql_fetch_assoc($result);
 $numOptions = $row['numOptions'];
@@ -46,6 +46,7 @@ if(mysql_num_rows($result) > 0) { // A record already exists. Display that.
   $qry = '
     SELECT optionID, name
     FROM options
+    WHERE availability != \'Catered\'
     ORDER BY rand()
     LIMIT 1';
   $result = runQuery($qry);
