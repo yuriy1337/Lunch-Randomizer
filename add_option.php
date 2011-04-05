@@ -29,15 +29,15 @@ if (isset($_POST['name'])) {
   $qry = '
     SELECT name 
     FROM options 
-    WHERE name = \'' . $option . '\'';
+    WHERE name = \'' . $newLocation . '\'';
   $result = runQuery($qry);
   if(mysql_num_rows($result)) {
-    echo 'The entry: \'' . $option . '\' already exists.';
+    echo 'The entry: \'' . $newLocation . '\' already exists.';
     $canAddThisEntry = false;
   }
 
   if($canAddThisEntry) {
-    $qry = 'INSERT INTO options (name, categoryID) VALUES (\'' . $option . '\', ' . $categoryID . ')';
+    $qry = 'INSERT INTO options (name, categoryID) VALUES (\'' . $newLocation . '\', ' . $category . ')';
     runQuery($qry);
   }
 }
