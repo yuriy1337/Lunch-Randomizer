@@ -6,7 +6,7 @@
 <?php
 	include '../resources/functions.php';
 	if( isset($_GET['confirm']) ) {
-		$con = mysql_connect('localhost', 'root', 'zdt951') or die( "Error connecting: " . mysql_error() );
+		$con = mysql_connect('localhost', 'root', '') or die( "Error connecting: " . mysql_error() );
 		
 		$drop_query = "DROP DATABASE IF EXISTS `lunch`";
 		runQuery($drop_query);
