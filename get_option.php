@@ -4,7 +4,7 @@
 Project Title: Lunch Randomizer
 File Title: get_option.php
 Original Author: Yuriy Myronchenko
-Modified By: Patrick Swanson
+Modified By: William Hanson
 
 Description: 
 
@@ -18,15 +18,23 @@ include('resources/functions.php');
 
 connectToDatabase();
 
+$excludeString = "";
+foreach ($_POST as $key => $box) {
+	if($box)
+		continue;
+	$excludeString .= " && categoryID != '$key'";
+}
+
 // Display how many choices there are.
-$qry = 'SELECT count(*) AS numOptions FROM options WHERE availability != \'Catered\'';
+$qry = 'SELECT count(*) AS numOptions FROM options WHERE availability != \'Catered\''.$excludeString;
 $result = runQuery($qry);
 $row = mysql_fetch_assoc($result);
 $numOptions = $row['numOptions'];
-echo 'There are ' . $numOptions . ' options available.<br /><br />';
-if($numOptions == 0) {
-  echo 'Add some options.';
+if($numOptions == 0) {	//Error message is displayed on the next page
+	die("No options availible.  Add some.");
 }
+
+echo 'There are ' . $numOptions . ' options available.<br /><br />';
 
 // Check if we've already requested a choice for today. If no, request one and add a record to the database for today. If yes, display that one.
 $qry = '
@@ -46,8 +54,9 @@ if(mysql_num_rows($result) > 0) { // A record already exists. Display that.
   $qry = '
     SELECT optionID, name
     FROM options
-    WHERE availability != \'Catered\'
-    ORDER BY rand()
+    WHERE availability != \'Catered\'' .
+	$excludeString .
+    'ORDER BY rand()
     LIMIT 1';
   $result = runQuery($qry);
   $row = mysql_fetch_assoc($result);

@@ -49,6 +49,7 @@ if(isset($_POST['username'])) {
 */
 //} else {
 ?>
+  <br />
   <a href="get_option.php">Pick a random menu option</a>
   <br />
   <a href="view_all_options.php">View list of all lunch options</a>
