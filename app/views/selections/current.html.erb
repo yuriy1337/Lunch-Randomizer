@@ -1,0 +1,9 @@
+<%= @selection.date_created %>
+<br />
+<%= @selection.place.name %>
+<br />
+<%= link_to "Vote Up", url_for(:controller => 'selections', :action => 'vote', :selection_id => @selection.id, :vote_value => 'up'), :remote => true %> (<span id='up_votes'><%= @ups %></span>)
+<br />
+<%= link_to "Vote Down", url_for(:controller => 'selections', :action => 'vote', :selection_id => @selection.id, :vote_value => 'down'), :remote => true %> (<span id='down_votes'><%= @downs %></span>)
+
+<div id='vote_status' />

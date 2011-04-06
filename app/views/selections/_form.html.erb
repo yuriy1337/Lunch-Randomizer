@@ -1,0 +1,25 @@
+<%= form_for(@selection) do |f| %>
+  <% if @selection.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@selection.errors.count, "error") %> prohibited this selection from being saved:</h2>
+
+      <ul>
+      <% @selection.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date_created %><br />
+    <%= f.date_select :date_created %>
+  </div>
+  <div class="field">
+    <%= f.label :place_id %><br />
+    <%= f.text_field :place_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

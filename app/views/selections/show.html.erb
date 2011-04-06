@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Date created:</b>
+  <%= @selection.date_created %>
+</p>
+
+<p>
+  <b>Place:</b>
+  <%= @selection.place_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_selection_path(@selection) %> |
+<%= link_to 'Back', selections_path %>
