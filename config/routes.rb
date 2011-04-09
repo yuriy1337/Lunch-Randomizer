@@ -1,8 +1,13 @@
 Lunch::Application.routes.draw do
+  resources :application
+  match '/' => 'application#index'
+
   resources :users
   match '/register' => 'users#new'
   match '/login' => 'users#login', :as => 'login'
   match '/logout' => 'users#logout', :as => 'logout'
+
+  resources :selections
   match 'selections' => 'selections#index'
   match 'selections/current' => 'selections#current'
   match 'selections/vote/:selection_id/:vote_value' => 'selections#vote', :as => 'vote'
