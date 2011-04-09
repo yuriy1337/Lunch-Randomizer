@@ -9,11 +9,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  #Localization support for the app.
   def set_locale
     # if params[:locale] is nil then I18n.default_locale will be used
     I18n.locale = params[:locale]
   end
 
+  #Entry view point for the application
   def index
 
   end
