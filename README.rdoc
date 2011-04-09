@@ -1,13 +1,10 @@
-About
-===
+== About
 This is the Lunch Randomizer
 
-Plugins
-===
+== Plugins
 https://github.com/lleger/Rails-3-jQuery
 
-Rails Info
-===
+== Rails Info
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create
