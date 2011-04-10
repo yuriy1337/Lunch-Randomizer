@@ -15,6 +15,10 @@ class ApplicationController < ActionController::Base
     I18n.locale = params[:locale]
   end
 
+  def default_url_options
+    { :locale => I18n.locale }
+  end
+
   #Entry view point for the application
   def index
 

@@ -2,4 +2,41 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 pirate:
-  site_title: "Ye Old Lunch Randomizer"
+#Strings for Layouts
+  layouts:
+    application:
+      site_title: "Ye Old Lunch Randomizer"
+
+  #Strings for Views
+  application:
+    index:
+      manage_places: "Manage Places"
+
+  categories:
+    form:
+    edit:
+    index:
+    new:
+    show:
+
+  places:
+    form:
+    edit:
+    index:
+    new:
+    show:
+
+  selections:
+    form:
+    current:
+    edit:
+    index:
+    new:
+    show:
+
+  users:
+    form:
+    login:
+    new:
+    show:
+
