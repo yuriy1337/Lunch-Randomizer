@@ -2,8 +2,8 @@
 This is the Lunch Randomizer
 
 == 3rd Party Plugins/Libraries
-Rails 3 jQuery[https://github.com/lleger/Rails-3-jQuery>]
-YUI ResetCSS[http://developer.yahoo.com/yui/3/cssreset/]
+- Rails-3-jQuery[https://github.com/lleger/Rails-3-jQuery>]
+- YUI-ResetCSS[http://developer.yahoo.com/yui/3/cssreset/]
 
 
 == Rails Info
