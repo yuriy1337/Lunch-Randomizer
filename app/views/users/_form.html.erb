@@ -27,6 +27,10 @@
     <%= f.label :password_confirmation, 'Confirm Password' %><br />
     <%= f.password_field :password_confirmation %>
   </div>
+  <div class="field">
+    <%= f.label :language %><br />
+    <%= select_tag :language, options_for_select(LANGUAGES, I18n.locale.to_s) %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
