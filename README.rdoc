@@ -1,8 +1,10 @@
 == About
 This is the Lunch Randomizer
 
-== Plugins
-https://github.com/lleger/Rails-3-jQuery
+== 3rd Party Plugins/Libraries
+((<Rails 3 jQuery|URL:https://github.com/lleger/Rails-3-jQuery>))
+((<YUI ResetCSS|URL:http://developer.yahoo.com/yui/3/cssreset/))
+
 
 == Rails Info
 == Welcome to Rails
