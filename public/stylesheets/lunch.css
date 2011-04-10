@@ -1,0 +1,32 @@
+body {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  background-color: #fff;
+  color: #333;
+}
+
+h1 {
+  font-size: 26px;
+}
+
+#page_container {
+  width: 70%;
+  min-width: 995px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#header {
+  height: 100px;
+  border: 1px solid black;
+}
+
+#content {
+  padding: 10px;
+}
+
+#footer {
+  height: 50px;
+  border: 1px solid black;
+}
