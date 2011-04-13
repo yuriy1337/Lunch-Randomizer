@@ -1,6 +1,8 @@
-*.DS_Store
 /.idea/
 /tmp/
 /log/
 /nbproject/
+/tmp/
 *.log
+*.sqlite3
+*.DS_Store
