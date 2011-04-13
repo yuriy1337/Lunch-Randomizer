@@ -8,10 +8,6 @@ en:
       site_title: "Lunch Randomizer"
 
   #Strings for Views
-  application:
-    index:
-      manage_places: "Manage Places"
-
   shared:
     navigation:
       manage_places: "Manage Places"
