@@ -13,14 +13,16 @@ class SelectionsController < ApplicationController
 
   def current
     date = Date.today
-    @selection = Selection.first(:conditions => {:date_created => date})
-    if @selection.blank?
-      places = Place.all
-      @selection = Selection.new(:date_created => date, :place_id => places[rand(places.length)].id)
-      @selection.save
+    places = Place.all
+    if !places.empty?
+      @selection = Selection.first(:conditions => {:date_created => date})
+      if @selection.blank?
+        @selection = Selection.new(:date_created => date, :place_id => places[rand(places.length)].id)
+        @selection.save
+      end
+      @ups = Vote.count(:conditions => {:selection_id => @selection.id, :is_up => true})
+      @downs = Vote.count(:conditions => {:selection_id => @selection.id, :is_up => false})
     end
-    @ups = Vote.count(:conditions => {:selection_id => @selection.id, :is_up => true})
-    @downs = Vote.count(:conditions => {:selection_id => @selection.id, :is_up => false})
   end
   
   def vote

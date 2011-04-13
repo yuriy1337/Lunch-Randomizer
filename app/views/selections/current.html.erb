@@ -1,3 +1,4 @@
+<% if !@selection.nil? %>
 <%= @selection.date_created %>
 <br />
 <%= @selection.place.name %>
@@ -7,3 +8,6 @@
 <%= link_to "Vote Down", url_for(:controller => 'selections', :action => 'vote', :selection_id => @selection.id, :vote_value => 'down'), :remote => true %> (<span id='down_votes'><%= @downs %></span>)
 
 <div id='vote_status' />
+<% else %>
+<div>There is nothing to choose from.</div>
+<% end %>

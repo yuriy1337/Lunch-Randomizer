@@ -1990,3 +1990,354 @@ Started GET "/places" for 172.18.4.109 at Wed Apr 06 08:35:49 -0500 2011
   [1m[36mPlace Load (1.0ms)[0m  [1mSELECT "places".* FROM "places"[0m
 Rendered places/index.html.erb within layouts/application (5.0ms)
 Completed 200 OK in 42ms (Views: 27.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-12 20:33:26 -0500
+  Processing by ApplicationController#index as HTML
+Rendered application/index.erb within layouts/application (7.0ms)
+Completed 200 OK in 70ms (Views: 70.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/selections/current?locale=en" for 127.0.0.1 at 2011-04-12 20:33:34 -0500
+  Processing by SelectionsController#current as HTML
+  Parameters: {"locale"=>"en"}
+Redirected to http://localhost:3000/login?locale=en
+Completed 302 Found in 1ms
+
+
+Started GET "/login?locale=en" for 127.0.0.1 at 2011-04-12 20:33:34 -0500
+  Processing by UsersController#login as HTML
+  Parameters: {"locale"=>"en"}
+Rendered users/login.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 21ms (Views: 21.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/register" for 127.0.0.1 at 2011-04-12 20:33:38 -0500
+  Processing by UsersController#new as HTML
+Rendered users/_form.html.erb (8.0ms)
+Rendered users/new.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 295ms (Views: 33.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users?locale=en" for 127.0.0.1 at 2011-04-12 20:33:51 -0500
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LnNSvAgpp7nY3RHpom9u2AQv1tvmn0aUv4ZrtM9ITeE=", "user"=>{"username"=>"yuriy1337", "email"=>"yuriy1337@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "language"=>"en", "commit"=>"Create User", "locale"=>"en"}
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."username" = 'yuriy1337') LIMIT 1
+  [1m[36mAREL (1.0ms)[0m  [1mINSERT INTO "users" ("username", "email", "hashed_password", "created_at", "updated_at") VALUES ('yuriy1337', 'yuriy1337@gmail.com', '4dd7c4be948f4cf5d4e5911261979983ad2be0b1b0b06e17767f4469f8730f57e81418d2319a9180', '2011-04-13 01:33:51.767240', '2011-04-13 01:33:51.767240')[0m
+Redirected to http://localhost:3000/login?locale=en&notice=Registration+complete%2C+please+login.
+Completed 302 Found in 364ms
+
+
+Started GET "/login?locale=en&notice=Registration+complete%2C+please+login." for 127.0.0.1 at 2011-04-12 20:33:51 -0500
+  Processing by UsersController#login as HTML
+  Parameters: {"locale"=>"en", "notice"=>"Registration complete, please login."}
+Rendered users/login.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 21ms (Views: 21.0ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/login?locale=en" for 127.0.0.1 at 2011-04-12 20:33:58 -0500
+  Processing by UsersController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LnNSvAgpp7nY3RHpom9u2AQv1tvmn0aUv4ZrtM9ITeE=", "username"=>"yuriy1337", "password"=>"[FILTERED]", "commit"=>"Login", "locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'yuriy1337' LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 62ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-12 20:33:58 -0500
+  Processing by ApplicationController#index as HTML
+Rendered application/index.erb within layouts/application (4.0ms)
+Completed 200 OK in 17ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/selections/current?locale=en" for 127.0.0.1 at 2011-04-12 20:33:59 -0500
+  Processing by SelectionsController#current as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mSelection Load (0.0ms)[0m  [1mSELECT "selections".* FROM "selections" WHERE "selections"."date_created" = '2011-04-12' LIMIT 1[0m
+  [1m[35mPlace Load (0.0ms)[0m  SELECT "places".* FROM "places"
+Completed   in 45ms
+
+RuntimeError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id):
+  app/controllers/selections_controller.rb:19:in `current'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (11.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (48.0ms)
+
+
+Started GET "/selections/current?locale=en" for 127.0.0.1 at 2011-04-12 20:38:43 -0500
+  Processing by SelectionsController#current as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mSelection Load (0.0ms)[0m  [1mSELECT "selections".* FROM "selections" WHERE "selections"."date_created" = '2011-04-12' LIMIT 1[0m
+  [1m[35mPlace Load (1.0ms)[0m  SELECT "places".* FROM "places"
+Completed   in 32ms
+
+RuntimeError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id):
+  app/controllers/selections_controller.rb:20:in `current'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.0ms)
+
+
+Started GET "/selections/current?locale=en" for 127.0.0.1 at 2011-04-12 20:39:13 -0500
+  Processing by SelectionsController#current as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mSelection Load (0.0ms)[0m  [1mSELECT "selections".* FROM "selections" WHERE "selections"."date_created" = '2011-04-12' LIMIT 1[0m
+  [1m[35mPlace Load (0.0ms)[0m  SELECT "places".* FROM "places"
+Completed   in 33ms
+
+RuntimeError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id):
+  app/controllers/selections_controller.rb:21:in `current'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (43.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (66.0ms)
+
+
+Started GET "/selections/current?locale=en" for 127.0.0.1 at 2011-04-12 20:39:16 -0500
+  Processing by SelectionsController#current as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mSelection Load (0.0ms)[0m  [1mSELECT "selections".* FROM "selections" WHERE "selections"."date_created" = '2011-04-12' LIMIT 1[0m
+  [1m[35mPlace Load (1.0ms)[0m  SELECT "places".* FROM "places"
+Completed   in 36ms
+
+RuntimeError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id):
+  app/controllers/selections_controller.rb:21:in `current'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (28.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (43.0ms)
+
+
+Started GET "/selections/current?locale=en" for 127.0.0.1 at 2011-04-12 20:39:44 -0500
+  Processing by SelectionsController#current as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mSelection Load (1.0ms)[0m  [1mSELECT "selections".* FROM "selections" WHERE "selections"."date_created" = '2011-04-12' LIMIT 1[0m
+  [1m[35mPlace Load (1.0ms)[0m  SELECT "places".* FROM "places"
+Completed   in 33ms
+
+RuntimeError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id):
+  app/controllers/selections_controller.rb:21:in `current'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.0ms)
+
+
+Started GET "/selections/current?locale=en" for 127.0.0.1 at 2011-04-12 20:39:50 -0500
+  Processing by SelectionsController#current as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mSelection Load (0.0ms)[0m  [1mSELECT "selections".* FROM "selections" WHERE "selections"."date_created" = '2011-04-12' LIMIT 1[0m
+  [1m[35mPlace Load (0.0ms)[0m  SELECT "places".* FROM "places"
+Completed   in 30ms
+
+RuntimeError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id):
+  app/controllers/selections_controller.rb:21:in `current'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.0ms)
+
+
+Started GET "/selections/current?locale=en" for 127.0.0.1 at 2011-04-12 20:40:02 -0500
+  Processing by SelectionsController#current as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mSelection Load (0.0ms)[0m  [1mSELECT "selections".* FROM "selections" WHERE "selections"."date_created" = '2011-04-12' LIMIT 1[0m
+  [1m[35mPlace Load (0.0ms)[0m  SELECT "places".* FROM "places"
+Completed   in 37ms
+
+RuntimeError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id):
+  app/controllers/selections_controller.rb:21:in `current'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.0ms)
+
+
+Started GET "/selections/current?locale=en" for 127.0.0.1 at 2011-04-12 20:40:11 -0500
+  Processing by SelectionsController#current as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mSelection Load (1.0ms)[0m  [1mSELECT "selections".* FROM "selections" WHERE "selections"."date_created" = '2011-04-12' LIMIT 1[0m
+  [1m[35mPlace Load (1.0ms)[0m  SELECT "places".* FROM "places"
+Completed   in 60ms
+
+RuntimeError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id):
+  app/controllers/selections_controller.rb:24:in `current'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (23.0ms)
+
+
+Started GET "/selections/current?locale=en" for 127.0.0.1 at 2011-04-12 20:40:24 -0500
+  Processing by SelectionsController#current as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mSelection Load (0.0ms)[0m  [1mSELECT "selections".* FROM "selections" WHERE "selections"."date_created" = '2011-04-12' LIMIT 1[0m
+  [1m[35mPlace Load (0.0ms)[0m  SELECT "places".* FROM "places"
+Rendered selections/current.html.erb within layouts/application (77.0ms)
+Completed   in 157ms
+
+ActionView::Template::Error (undefined method `date_created' for nil:NilClass):
+    1: <%= @selection.date_created %>
+    2: <br />
+    3: <%= @selection.place.name %>
+    4: <br />
+  app/views/selections/current.html.erb:1:in `_app_views_selections_current_html_erb__525697048_32293980_910743402'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (24.0ms)
+
+
+Started GET "/selections/current?locale=en" for 127.0.0.1 at 2011-04-12 20:41:38 -0500
+  Processing by SelectionsController#current as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mPlace Load (1.0ms)[0m  [1mSELECT "places".* FROM "places"[0m
+Rendered selections/current.html.erb within layouts/application (1.0ms)
+Completed   in 33ms
+
+ActionView::Template::Error (undefined method `date_created' for nil:NilClass):
+    1: <%= @selection.date_created %>
+    2: <br />
+    3: <%= @selection.place.name %>
+    4: <br />
+  app/views/selections/current.html.erb:1:in `_app_views_selections_current_html_erb__525697048_31521696_910743402'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (19.0ms)
+
+
+Started GET "/selections/current?locale=en" for 127.0.0.1 at 2011-04-12 20:44:42 -0500
+  Processing by SelectionsController#current as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mPlace Load (0.0ms)[0m  SELECT "places".* FROM "places"
+Rendered selections/current.html.erb within layouts/application (0.0ms)
+Completed   in 34ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.empty?):
+    1: <% if !@selection.empty? %>
+    2: <%= @selection.date_created %>
+    3: <br />
+    4: <%= @selection.place.name %>
+  app/views/selections/current.html.erb:1:in `_app_views_selections_current_html_erb__525697048_30506160_910743402'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (20.0ms)
+
+
+Started GET "/selections/current?locale=en" for 127.0.0.1 at 2011-04-12 20:44:53 -0500
+  Processing by SelectionsController#current as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mPlace Load (0.0ms)[0m  [1mSELECT "places".* FROM "places"[0m
+Rendered selections/current.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 46ms (Views: 27.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/selections/current?locale=en" for 127.0.0.1 at 2011-04-12 20:44:59 -0500
+  Processing by SelectionsController#current as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mPlace Load (1.0ms)[0m  SELECT "places".* FROM "places"
+Rendered selections/current.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 38ms (Views: 22.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/selections/current?locale=en" for 127.0.0.1 at 2011-04-12 20:45:04 -0500
+  Processing by SelectionsController#current as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mPlace Load (1.0ms)[0m  [1mSELECT "places".* FROM "places"[0m
+Rendered selections/current.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 35ms (Views: 20.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/categories?locale=en" for 127.0.0.1 at 2011-04-12 20:45:10 -0500
+  Processing by CategoriesController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 55ms (Views: 22.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/selections/current?locale=en" for 127.0.0.1 at 2011-04-12 20:45:16 -0500
+  Processing by SelectionsController#current as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mPlace Load (1.0ms)[0m  [1mSELECT "places".* FROM "places"[0m
+Rendered selections/current.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 40ms (Views: 22.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/selections/current?locale=en" for 127.0.0.1 at 2011-04-12 20:47:44 -0500
+  Processing by SelectionsController#current as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mPlace Load (1.0ms)[0m  SELECT "places".* FROM "places"
+Rendered selections/current.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 52ms (Views: 21.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-12 20:48:08 -0500
+  Processing by ApplicationController#index as HTML
+Rendered application/index.erb within layouts/application (4.0ms)
+Completed 200 OK in 18ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/selections/current?locale=en" for 127.0.0.1 at 2011-04-12 20:48:09 -0500
+  Processing by SelectionsController#current as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mPlace Load (1.0ms)[0m  [1mSELECT "places".* FROM "places"[0m
+Rendered selections/current.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 35ms (Views: 20.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/selections?locale=en" for 127.0.0.1 at 2011-04-12 20:48:38 -0500
+  Processing by SelectionsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mSelection Load (1.0ms)[0m  SELECT "selections".* FROM "selections"
+Rendered selections/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 36ms (Views: 21.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/selections?locale=en" for 127.0.0.1 at 2011-04-12 20:48:44 -0500
+  Processing by SelectionsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mSelection Load (1.0ms)[0m  [1mSELECT "selections".* FROM "selections"[0m
+Rendered selections/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 35ms (Views: 20.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/selections?locale=en" for 127.0.0.1 at 2011-04-12 20:48:50 -0500
+  Processing by SelectionsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mSelection Load (1.0ms)[0m  SELECT "selections".* FROM "selections"
+Rendered selections/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 36ms (Views: 21.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/selections/current?locale=en" for 127.0.0.1 at 2011-04-12 20:48:52 -0500
+  Processing by SelectionsController#current as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mPlace Load (1.0ms)[0m  [1mSELECT "places".* FROM "places"[0m
+Rendered selections/current.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 54ms (Views: 21.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/categories?locale=en" for 127.0.0.1 at 2011-04-12 20:48:54 -0500
+  Processing by CategoriesController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 36ms (Views: 22.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/selections?locale=en" for 127.0.0.1 at 2011-04-12 20:48:55 -0500
+  Processing by SelectionsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mSelection Load (0.0ms)[0m  [1mSELECT "selections".* FROM "selections"[0m
+Rendered selections/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 38ms (Views: 21.0ms | ActiveRecord: 0.0ms)
