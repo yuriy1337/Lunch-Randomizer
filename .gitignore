@@ -2,4 +2,5 @@
 /.idea/
 /tmp/
 /log/
+/nbproject/
 *.log
