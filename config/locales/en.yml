@@ -12,6 +12,13 @@ en:
     index:
       manage_places: "Manage Places"
 
+  shared:
+    navigation:
+      manage_places: "Manage Places"
+      manage_categories: "Manage Categories"
+      current_selections: "Current Selection"
+      all_selections: "All Selections"
+
   categories:
     form:
     edit:
