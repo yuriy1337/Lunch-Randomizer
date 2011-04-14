@@ -6,14 +6,15 @@ pirate:
   layouts:
     application:
       site_title: "Ye Old Lunch Randomizer"
-
-  #Strings for Views
-  shared:
-    navigation:
       manage_places: "Aye, Manage Places Aye"
       manage_categories: "Aye, Manage Categories Gar"
       current_selections: "Arrr, Current Selection"
       all_selections: "Arrr, All Selections Aye."
+
+  #Strings for Views
+  shared:
+    navigation:
+
 
   categories:
     form:

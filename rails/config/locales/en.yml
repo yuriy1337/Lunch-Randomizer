@@ -6,14 +6,15 @@ en:
   layouts:
     application:
       site_title: "Lunch Randomizer"
-
-  #Strings for Views
-  shared:
-    navigation:
       manage_places: "Manage Places"
       manage_categories: "Manage Categories"
       current_selections: "Current Selection"
       all_selections: "All Selections"
+
+  #Strings for Views
+  shared:
+    navigation:
+
 
   categories:
     form:

@@ -1,19 +1,47 @@
-<h1>Listing selections</h1>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", selections_path  %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Selections</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>             
+          <th class="first">ID</th>
+                    <th>
+            <%= t("activerecord.attributes.selection.date_created", :default => t("activerecord.labels.date_created", :default => "Date_created")) %>
+          </th>
+                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @selections.each do |selection| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= selection.id %>
+          </td>
+                    <td>
+            <%= link_to selection.date_created, selection_path(selection) %>
+          </td>
+                    <td>
+            <%= selection.created_at %>
+          </td>
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", selection_path(selection) %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_selection_path(selection) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", selection_path(selection), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
-<table>
-  <tr>
-    <th>Date</th>
-    <th>Place</th>
-    <th>Category</th>
-  </tr>
-
-<% @selections.each do |selection| %>
-  <tr>
-    <td><%= selection.date_created %></td>
-    <td><%= selection.place.name %></td>
-    <td><%= selection.place.category.name %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
+<% content_for :sidebar, render(:partial => 'sidebar') -%>
