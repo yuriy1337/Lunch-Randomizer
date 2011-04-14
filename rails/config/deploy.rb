@@ -1,9 +1,10 @@
 set :domain, "lunchrandomizer.com"
+set :home_path, "/home/tomarra/"
 set :application, "lunchrandomizer"
 
 set :user, Capistrano::CLI.ui.ask("Username: ")
 set :use_sudo, false
-set :deploy_to, "~/#{domain}"
+set :deploy_to, "#{home_path}#{domain}"
 
 
 set :scm, :git
