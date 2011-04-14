@@ -49,7 +49,7 @@ class UsersController < ApplicationController
 #        if uri != nil
 #          redirect_to(uri || "/")
 #        else
-        redirect_to '/'
+        redirect_to :controller => 'application', :action => 'index', :locale => user.language
 #        end
       else
         flash.now[:notice] = "Invalid username/password combination"
@@ -58,9 +58,10 @@ class UsersController < ApplicationController
   end
 
   def logout
+    locale = session[:user].language
     session[:user_id] = nil
     session[:user] = nil
     flash[:notice] = "Logged out"
-    redirect_to :controller => "application", :action => "index"
+    redirect_to :controller => "application", :action => "index", :locale => locale
   end
 end

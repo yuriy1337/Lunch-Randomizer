@@ -2,3 +2,8 @@
 <%= link_to( t('.manage_categories'), categories_path) %>
 <%= link_to( t('.current_selections'), {:controller => "selections", :action => "current"}) %>
 <%= link_to( t('.all_selections'), selections_path) %>
+<% if session[:user].blank? %>
+    <%= link_to( t('.login'), login_path) %>
+<% else %>
+    <%= link_to( t('.logout'), logout_path) %>
+<% end %>

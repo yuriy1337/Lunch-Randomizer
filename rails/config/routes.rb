@@ -1,20 +1,26 @@
 Lunch::Application.routes.draw do
-  resources :application
-  match '/' => 'application#index'
 
-  resources :users
-  match '/register' => 'users#new'
-  match '/login' => 'users#login', :as => 'login'
-  match '/logout' => 'users#logout', :as => 'logout'
+  # add the locale as part of the route
+  scope "/(:locale)" do
+    match '/register' => 'users#new'
+    match '/login' => 'users#login', :as => 'login'
+    match '/logout' => 'users#logout', :as => 'logout'
+
+    resources :users
 
 
-  match 'selections' => 'selections#index'
-  match 'selections/current' => 'selections#current'
-  match 'selections/vote/:selection_id/:vote_value' => 'selections#vote', :as => 'vote'
+    match 'selections' => 'selections#index'
+    match 'selections/current' => 'selections#current'
+    match 'selections/vote/:selection_id/:vote_value' => 'selections#vote', :as => 'vote'
 
-  resources :categories
+    resources :categories
 
-  resources :places
+    resources :places
+  end
+
+  # match root and root with locale
+  match '/:locale' => 'application#index'
+  root :to => 'application#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -10,6 +10,8 @@ en:
       manage_categories: "Manage Categories"
       current_selections: "Current Selection"
       all_selections: "All Selections"
+      logout: "Logout"
+      login: "Login"
 
   #Strings for Views
   shared:
