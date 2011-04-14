@@ -2,7 +2,7 @@
 */tmp/
 */log/
 */nbproject/
-*/tmp/
+*/.bundle/
 *.log
 *.sqlite3
 *.DS_Store
