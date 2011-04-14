@@ -13,7 +13,9 @@ pirate:
       manage_places: "Aye, Manage Places Aye"
       manage_categories: "Aye, Manage Categories Gar"
       current_selections: "Arrr, Current Selection"
-      all_selections: "Arrr, All Selections Aye."
+      all_selections: "Arrr, All Selections Aye"
+      logout: "Walk th' plank"
+      login: "Board th' ship"
 
   categories:
     form:
