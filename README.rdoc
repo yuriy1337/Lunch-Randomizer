@@ -1,5 +1,6 @@
 == About
 This is the Lunch Randomizer
+Official site: Lunch-Randomizer[http://lunch-randomizer.heroku.com]
 
 == 3rd Party Plugins/Libraries
 - Rails-3-jQuery[https://github.com/lleger/Rails-3-jQuery>]

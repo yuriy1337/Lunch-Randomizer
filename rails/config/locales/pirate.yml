@@ -1,16 +1,19 @@
 # Sample localization file for English. Add more files in this directory for other locales.
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
-en:
-  #Strings for Layouts
+pirate:
+#Strings for Layouts
   layouts:
     application:
-      site_title: "Lunch Randomizer"
+      site_title: "Ye Old Lunch Randomizer"
 
   #Strings for Views
-  application:
-    index:
-      manage_places: "Manage Places"
+  shared:
+    navigation:
+      manage_places: "Aye, Manage Places Aye"
+      manage_categories: "Aye, Manage Categories Gar"
+      current_selections: "Arrr, Current Selection"
+      all_selections: "Arrr, All Selections Aye."
 
   categories:
     form:
