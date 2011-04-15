@@ -1,9 +1,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  username: MyString
-  email: MyString
-  hashed_password: MyString
+  username: username
+  email: valid_email@email.com
+  hashed_password: c53edebf83a39367db1e2bf234cff143bfd2ab4c69fbbf10d5aea25a37c59dcb915a58007f2db552
 
 two:
   username: MyString

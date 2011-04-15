@@ -3,6 +3,7 @@ require 'test_helper'
 class PlacesControllerTest < ActionController::TestCase
   setup do
     @place = places(:one)
+    @update = { :name => "Red Robin", :category_id => 1 }
   end
 
   test "should get index" do
@@ -18,7 +19,7 @@ class PlacesControllerTest < ActionController::TestCase
 
   test "should create place" do
     assert_difference('Place.count') do
-      post :create, :place => @place.attributes
+      post :create, :place => @update
     end
 
     assert_redirected_to place_path(assigns(:place))

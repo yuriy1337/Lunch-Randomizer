@@ -1,14 +1,14 @@
 class UsersController < ApplicationController
   # GET /users/1
-#  # GET /users/1.xml
-#  def show
-#    @user = User.find(params[:id])
+  # GET /users/1.xml
+  def show
+    @user = User.find(params[:id])
 
-#    respond_to do |format|
-#      format.html # show.html.erb
-#      format.xml  { render :xml => @user }
-#    end
-#  end
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @user }
+    end
+  end
 
   # GET /users/new
   # GET /users/new.xml
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to(:controller => "users", :action => "login", :notice => 'Registration complete, please login.') }
+        format.html { redirect_to(:controller => "users", :action => "login") }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }

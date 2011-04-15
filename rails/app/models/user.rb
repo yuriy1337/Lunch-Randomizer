@@ -3,7 +3,7 @@ require 'digest/sha1'
 class User < ActiveRecord::Base
   has_many :votes
 
-  validates :username, :hashed_password, :presence => true
+  validates :username, :hashed_password, :email, :language, :presence => true
   validates :username, :email, :uniqueness => true
   validates :email, :format => { :with => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i }
 

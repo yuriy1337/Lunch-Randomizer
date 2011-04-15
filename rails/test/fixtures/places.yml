@@ -2,10 +2,10 @@
 
 one:
   name: MyString
-  category_id: 
+  category_id: 1
   is_catered: false
 
 two:
-  name: MyString
-  category_id: 
+  name: MyString1
+  category_id: 2
   is_catered: false
