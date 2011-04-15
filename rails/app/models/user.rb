@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   has_many :votes
 
   validates :username, :hashed_password, :presence => true
-  validates :username, :uniqueness => true
+  validates :username, :email, :uniqueness => true
+  validates :email, :format => { :with => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i }
 
   attr_accessor :password_confirmation
   validates_confirmation_of :password
