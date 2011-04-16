@@ -2,6 +2,7 @@ require 'digest/sha1'
 
 class User < ActiveRecord::Base
   has_many :votes
+  before_validation :normalize_inputs, :only => [:username, :email]
 
   validates :username, :hashed_password, :email, :language, :presence => true
   validates :username, :email, :uniqueness => true
@@ -11,6 +12,7 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password
 
   validate :password_non_blank
+
 
   def password
     @password
@@ -32,6 +34,11 @@ class User < ActiveRecord::Base
   end
 
 private
+
+  def normalize_inputs
+    self.username = self.username.strip
+    self.email = self.email.strip
+  end
 
   def password_non_blank
     errors.add(:password, "Missing password") if hashed_password.blank?
