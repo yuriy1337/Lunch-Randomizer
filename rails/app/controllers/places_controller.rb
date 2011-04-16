@@ -42,7 +42,6 @@ class PlacesController < ApplicationController
   # POST /places.xml
   def create
     @place = Place.new(params[:place])
-    @place.category_id = params[:category][:id]
     respond_to do |format|
       if @place.save
         format.html { redirect_to(@place, :notice => 'Place was successfully created.') }
