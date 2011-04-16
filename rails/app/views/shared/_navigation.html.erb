@@ -1,9 +1,12 @@
-<%= link_to( t('.manage_places'), places_path) %>
-<%= link_to( t('.manage_categories'), categories_path) %>
-<%= link_to( t('.current_selections'), {:controller => "selections", :action => "current"}) %>
-<%= link_to( t('.all_selections'), selections_path) %>
 <% if session[:user].blank? %>
-    <%= link_to( t('.login'), login_path) %>
+  <li><%= link_to( t('.login'), login_path) %></li>
 <% else %>
-    <%= link_to( t('.logout'), logout_path) %>
+  <li><%= link_to( t('.manage_places'), places_path) %></li>
+  <li><%= link_to( t('.manage_categories'), categories_path) %></li>
+  <li><%= link_to( t('.current_selections'), {:controller => "selections", :action => "current"}) %></li>
+  <li><%= link_to( t('.all_selections'), selections_path) %></li>
+  <!--<li><a href="#"><%= t("web-app-theme.profile", :default => "Profile") %></a></li>
+  <li><a href="#"><%= t("web-app-theme.settings", :default => "Settings") %></a></li>
+  <li><a href="/logout" class="logout"><%= t("web-app-theme.logout", :default => "Logout") %></a></li> -->
+  <li><%= link_to( t('.logout'), logout_path) %></li>
 <% end %>

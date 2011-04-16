@@ -1,4 +1,4 @@
-<% if !@selection.nil? %>
+<!--<% if !@selection.nil? %>
 <%= @selection.date_created %>
 <br />
 <%= @selection.place.name %>
@@ -11,3 +11,37 @@
 <% else %>
 <div>There is nothing to choose from.</div>
 <% end %>
+-->
+
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to( t('.current_selections'), {:controller => "selections", :action => "current"}) %></li>
+    </ul>
+  </div>
+  <div class="content">
+    <div class="inner">
+      <% if !@selection.nil? %>
+      <p>
+        <b><%= t("activerecord.attributes.selection.place_id", :default => t("activerecord.labels.place_id", :default => "Place")) %>:</b>
+        <%= Place.find(@selection.place_id).name %>
+      </p>
+      <p>
+        <b><%= t("activerecord.attributes.selection.date_created", :default => t("activerecord.labels.date_created", :default => "Date created")) %>:</b>
+        <%= @selection.date_created %>
+      </p>
+      <%= link_to image_tag("vote/up_arrow.png"), url_for(:controller => 'selections', :action => 'vote', :selection_id => @selection.id, :vote_value => 'up'), :remote => true %> (<span id='up_votes'><%= @ups %></span>)
+      <br />
+      <%= link_to image_tag("vote/down_arrow.png"), url_for(:controller => 'selections', :action => 'vote', :selection_id => @selection.id, :vote_value => 'down'), :remote => true %> (<span id='down_votes'><%= @downs %></span>)
+      <div id='vote_status'></div>
+      
+      <% else %>
+      <div>There is nothing to choose from.</div>
+      <% end %>
+      <div class="wat-cf">
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

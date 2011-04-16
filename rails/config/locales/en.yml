@@ -6,17 +6,15 @@ en:
   layouts:
     application:
       site_title: "Lunch Randomizer"
+  #Strings for Views
+  shared:
+    navigation:
       manage_places: "Manage Places"
       manage_categories: "Manage Categories"
       current_selections: "Current Selection"
       all_selections: "All Selections"
       logout: "Logout"
       login: "Login"
-
-  #Strings for Views
-  shared:
-    navigation:
-
 
   categories:
     form:
@@ -35,6 +33,7 @@ en:
   selections:
     form:
     current:
+      current_selections: "Current Selection"
     edit:
     index:
     new:

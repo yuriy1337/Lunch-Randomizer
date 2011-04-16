@@ -9,29 +9,25 @@
     <div class="inner">
       <table class="table">
         <tr>             
-          <th class="first">ID</th>
-                    <th>
-            <%= t("activerecord.attributes.selection.date_created", :default => t("activerecord.labels.date_created", :default => "Date_created")) %>
+          <th class="first">Name</th>
+          <th>
+            <%= t("activerecord.attributes.category.name", :default => t("activerecord.labels.category", :default => "Category")) %>
           </th>
-                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+          <th><%= t("activerecord.attributes.selection.date_created", :default => t("activerecord.labels.date_created", :default => "Date Created")) %></th>
           <th class="last">&nbsp;</th>
         </tr>
         <% @selections.each do |selection| -%>
         <tr class="<%= cycle("odd", "even") %>">
           <td>
-            <%= selection.id %>
+            <%= Place.find(selection.place_id).name %>
           </td>
-                    <td>
-            <%= link_to selection.date_created, selection_path(selection) %>
+          <td>
+            <%= Category.find(Place.find(selection.place_id).category_id).name %>
           </td>
-                    <td>
-            <%= selection.created_at %>
+          <td>
+            <%= selection.date_created %>
           </td>
-          <td class="last">
-            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", selection_path(selection) %> |
-            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_selection_path(selection) %> |
-            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", selection_path(selection), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
-          </td>
+          <td class="last">&nbsp;</td>
         </tr>          
         <% end -%>
       </table>

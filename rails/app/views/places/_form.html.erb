@@ -2,19 +2,16 @@
   <div class="group">
     <%= f.label :name, t("activerecord.attributes.place.name", :default => "Name"), :class => :label %>
     <%= f.text_field :name, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
   </div>
 
   <div class="group">
     <%= f.label :category_id, t("activerecord.attributes.place.category_id", :default => "Category"), :class => :label %>
-    <%= f.text_field :category_id, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
+    <%= collection_select(:category, :id, Category.all, :id, :name) %><br />
   </div>
 
   <div class="group">
     <%= f.label :is_catered, t("activerecord.attributes.place.is_catered", :default => "Is catered"), :class => :label %>
     <%= f.check_box :is_catered, :class => 'check_box' %>
-    <span class="description">Ex: a simple text</span>
   </div>
         
 <div class="group navform wat-cf">

@@ -16,7 +16,7 @@
 
         <p>
           <b><%= t("activerecord.attributes.place.category_id", :default => t("activerecord.labels.category_id", :default => "Category")) %>:</b>
-          <%= @place.category_id %>
+          <%= Category.find(@place.category_id).name %>
         </p>
 
         <p>
