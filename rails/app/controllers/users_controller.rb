@@ -49,7 +49,7 @@ class UsersController < ApplicationController
 #        if uri != nil
 #          redirect_to(uri || "/")
 #        else
-        redirect_to :controller => 'application', :action => 'index', :locale => user.language
+        redirect_to :controller => 'selections', :action => 'current', :locale => user.language
 #        end
       else
         flash.now[:notice] = "Invalid username/password combination"
