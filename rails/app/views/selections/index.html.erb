@@ -9,19 +9,25 @@
     <div class="inner">
       <table class="table">
         <tr>             
-          <th class="first">ID</th>
+          <th class="first">Name</th>
           <th>
-            <%= t("activerecord.attributes.selection.date_created", :default => t("activerecord.labels.date_created", :default => "Date_created")) %>
+            <%= t("activerecord.attributes.category.name", :default => t("activerecord.labels.category", :default => "Category")) %>
           </th>
+          <th><%= t("activerecord.attributes.selection.date_created", :default => t("activerecord.labels.date_created", :default => "Date Created")) %></th>
+          <th class="last">&nbsp;</th>
         </tr>
         <% @selections.each do |selection| -%>
         <tr class="<%= cycle("odd", "even") %>">
           <td>
-            <%= selection.id %>
+            <%= Place.find(selection.place_id).name %>
+          </td>
+          <td>
+            <%= Category.find(Place.find(selection.place_id).category_id).name %>
           </td>
           <td>
             <%= selection.date_created %>
           </td>
+          <td class="last">&nbsp;</td>
         </tr>          
         <% end -%>
       </table>

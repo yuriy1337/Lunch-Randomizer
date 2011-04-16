@@ -10,23 +10,15 @@
     <div class="inner">
       <table class="table">
         <tr>             
-          <th class="first">ID</th>
-                    <th>
+                    <th class="first">
             <%= t("activerecord.attributes.place.name", :default => t("activerecord.labels.name", :default => "Name")) %>
           </th>
-                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
           <th class="last">&nbsp;</th>
         </tr>
         <% @places.each do |place| -%>
         <tr class="<%= cycle("odd", "even") %>">
-          <td>
-            <%= place.id %>
-          </td>
                     <td>
             <%= link_to place.name, place_path(place) %>
-          </td>
-                    <td>
-            <%= place.created_at %>
           </td>
           <td class="last">
             <%= link_to "#{t("web-app-theme.show", :default => "Show")}", place_path(place) %> |
