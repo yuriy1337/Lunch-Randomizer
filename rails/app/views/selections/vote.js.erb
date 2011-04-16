@@ -1,0 +1,3 @@
+$("#vote_status").html("<%= escape_javascript(@message) %>");
+$("#up_votes").html("<%= escape_javascript(@selection.up_votes.to_s) %>");
+$("#down_votes").html("<%= escape_javascript(@selection.down_votes.to_s) %>");

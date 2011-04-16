@@ -20,13 +20,13 @@ class SelectionsController < ApplicationController
         @selection = Selection.new(:date_created => date, :place_id => places[rand(places.length)].id)
         @selection.save
       end
-      @ups = Vote.count(:conditions => {:selection_id => @selection.id, :is_up => true})
-      @downs = Vote.count(:conditions => {:selection_id => @selection.id, :is_up => false})
+      @selection.get_votes
     end
   end
   
   def vote
-    vote_hash = {:user_id => session[:user_id], :selection_id => params[:selection_id]}
+    @selection = Selection.find(params[:selection_id])
+    vote_hash = {:user_id => session[:user_id], :selection_id => @selection.id}
     vote = Vote.first(:conditions => vote_hash)
     vote_hash[:is_up] = params[:vote_value] == 'up'
     if vote.blank?
@@ -34,20 +34,14 @@ class SelectionsController < ApplicationController
       vote.save
     elsif vote.is_up != vote_hash[:is_up]
       vote.update_attribute(:is_up, vote_hash[:is_up])
+      @message = 'Vote changed.'
     else
-      message = 'Voting failed, you already voted!'
+      @message = 'Voting failed, you already voted!'
     end
-    message ||= 'Voting successful.'
-    ups = Vote.count(:conditions => {:selection_id => @selection.id, :is_up => true})
-    downs = Vote.count(:conditions => {:selection_id => @selection.id, :is_up => false})
+    @message ||= 'Voting successful.'
+    @selection.get_votes
     respond_to do |format|
-      format.js {
-        render(:update) { |page|
-          page.replace_html 'vote_status', :text => message
-          page.replace_html 'up_votes', :text => ups
-          page.replace_html 'down_votes', :text => downs
-        }
-      }
+      format.js
     end
   end
 

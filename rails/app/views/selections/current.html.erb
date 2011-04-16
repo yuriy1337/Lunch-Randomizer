@@ -1,13 +1,16 @@
 <% if !@selection.nil? %>
-<%= @selection.date_created %>
-<br />
-<%= @selection.place.name %>
-<br />
-<%= link_to "Vote Up", url_for(:controller => 'selections', :action => 'vote', :selection_id => @selection.id, :vote_value => 'up'), :remote => true %> (<span id='up_votes'><%= @ups %></span>)
-<br />
-<%= link_to "Vote Down", url_for(:controller => 'selections', :action => 'vote', :selection_id => @selection.id, :vote_value => 'down'), :remote => true %> (<span id='down_votes'><%= @downs %></span>)
+  <%= @selection.date_created %>
+  <br />
+  <%= @selection.place.name %>
+  <br />
+  <%= link_to "Vote Up", url_for(:controller => 'selections', :action => 'vote', :selection_id => @selection.id, :vote_value => 'up'), :remote => true %> (<span id='up_votes'><%= @selection.up_votes %></span>)
+  <br />
+  <%= link_to "Vote Down", url_for(:controller => 'selections', :action => 'vote', :selection_id => @selection.id, :vote_value => 'down'), :remote => true %> (<span id='down_votes'><%= @selection.down_votes %></span>)
 
-<div id='vote_status' />
+  <div id='vote_status'></div>
 <% else %>
-<div>There is nothing to choose from.</div>
+  <div>There is nothing to choose from.</div>
 <% end %>
+<br />
+<br />
+<br />

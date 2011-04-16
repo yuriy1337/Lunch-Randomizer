@@ -1,9 +1,9 @@
 == About
 This is the Lunch Randomizer
-Official site: Lunch-Randomizer[http://lunch-randomizer.heroku.com]
+Official site: LunchRandomizer[http://www.lunchrandomizer.com/]
 
 == 3rd Party Plugins/Libraries
-- Rails-3-jQuery[https://github.com/lleger/Rails-3-jQuery>]
+- Rails-3-jQuery[https://github.com/rails/jquery-ujs]
 - YUI-ResetCSS[http://developer.yahoo.com/yui/3/cssreset/]
 - Capistrano[https://github.com/capistrano/capistrano/wiki]
 - Web-App-Theme[https://github.com/pilu/web-app-theme]
