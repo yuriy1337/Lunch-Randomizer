@@ -10,9 +10,6 @@
       <table class="table">
         <tr>             
           <th class="first">Name</th>
-          <th>
-            <%= t("activerecord.attributes.category.name", :default => t("activerecord.labels.category", :default => "Category")) %>
-          </th>
           <th><%= t("activerecord.attributes.selection.date_created", :default => t("activerecord.labels.date_created", :default => "Date Created")) %></th>
           <th class="last">&nbsp;</th>
         </tr>
@@ -20,9 +17,6 @@
         <tr class="<%= cycle("odd", "even") %>">
           <td>
             <%= selection.place.name %>
-          </td>
-          <td>
-            <%= selection.place.category.name %>
           </td>
           <td>
             <%= selection.date_created %>
