@@ -23,4 +23,8 @@ class ApplicationController < ActionController::Base
   def index
 
   end
+
+  def to_json(object)
+    render :json => object
+  end
 end
