@@ -19,10 +19,10 @@
         <% @selections.each do |selection| -%>
         <tr class="<%= cycle("odd", "even") %>">
           <td>
-            <%= Place.find(selection.place_id).name %>
+            <%= selection.place.name %>
           </td>
           <td>
-            <%= Category.find(Place.find(selection.place_id).category_id).name %>
+            <%= selection.place.category.name %>
           </td>
           <td>
             <%= selection.date_created %>
