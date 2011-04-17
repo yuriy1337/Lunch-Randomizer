@@ -4,10 +4,10 @@ class SelectionsController < ApplicationController
   # GET /selections.xml
   def index
     @selections = Selection.all(:include => {:place => :category})
-
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @selections }
+      format.json  { render :json => @selections }
     end
   end
 
@@ -21,6 +21,11 @@ class SelectionsController < ApplicationController
         @selection.save
       end
       @selection.get_votes
+    end
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @all }
+      format.json  { render :json => {:current_selection => @selection, :ups => @ups, :downs => @downs} }
     end
   end
   
