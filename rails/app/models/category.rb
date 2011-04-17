@@ -10,11 +10,14 @@ class Category < ActiveRecord::Base
     Category.all(:order => "lower(name)")
   end
 
+  def find_or_create_by_name(name)
+    Category.first(:conditions => [ "lower(name) = ?", name.downcase ]) || Category.create(:name => name)
+  end
 
   private
 
   def normalize_inputs
     self.name = normalize_text(self.name)
-    self.description = self.description.strip
+    self.description = self.description.strip unless self.description.blank?
   end
 end

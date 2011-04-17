@@ -26,7 +26,6 @@ class PlacesController < ApplicationController
   # GET /places/new.xml
   def new
     @place = Place.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @place }
@@ -35,13 +34,21 @@ class PlacesController < ApplicationController
 
   # GET /places/1/edit
   def edit
-    @place = Place.find(params[:id])
+    @place = Place.find(params[:id], :include => :category)
+    @category_name = @place.category.name
   end
 
   # POST /places
   # POST /places.xml
   def create
     @place = Place.new(params[:place])
+    unless params[:category].blank?
+      category = Category.find_or_create_by_name(params[:category][:name])
+      unless category.blank?
+        @category_name = category.name
+        @place.category_id = category.id
+      end
+    end
     respond_to do |format|
       if @place.save
         format.html { redirect_to(@place, :notice => 'Place was successfully created.') }
@@ -57,7 +64,13 @@ class PlacesController < ApplicationController
   # PUT /places/1.xml
   def update
     @place = Place.find(params[:id])
-
+    unless params[:category].blank?
+      category = Category.find_or_create_by_name(params[:category][:name])
+      unless category.blank?
+        @category_name = category.name
+        @place.category_id = category.id
+      end
+    end
     respond_to do |format|
       if @place.update_attributes(params[:place])
         format.html { redirect_to(@place, :notice => 'Place was successfully updated.') }
