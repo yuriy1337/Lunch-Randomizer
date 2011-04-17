@@ -14,7 +14,7 @@
                     <th>
             <%= t("activerecord.attributes.user.username", :default => t("activerecord.labels.username", :default => "Username")) %>
           </th>
-                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+                    <th><%= t("activerecord.attributes.user.created_at")  %></th>
           <th class="last">&nbsp;</th>
         </tr>
         <% @users.each do |user| -%>

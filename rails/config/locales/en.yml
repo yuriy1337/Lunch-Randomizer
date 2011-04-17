@@ -2,10 +2,24 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  #Strings for the overall theme
+  web-app-theme:
+    save: "Save"
+    or: "or"
+    cancel:"Cancel"
+    list: "List"
+    new: "New"
+    edit: "Edit"
+    all: "All"
+    show: "Show"
+    delete: "Delete"
+    confirm: "Are you sure?"
+
   #Strings for Layouts
   layouts:
     application:
       site_title: "Lunch Randomizer"
+
   #Strings for Views
   shared:
     navigation:
@@ -44,4 +58,26 @@ en:
     login:
     new:
     show:
+
+  #Strings relating to Database
+  activerecord:
+    attributes:
+      category:
+        name: "Name"
+        description: "Description"
+
+      place:
+        name: "Name"
+        category_id: "Category"
+        is_catered: "Is Catered"
+
+      selection:
+        date_created: "Date Created"
+        place_id: "Place"
+
+      user:
+        username: "Username"
+        email: "E-Mail"
+        language: "Language"
+        created_at: "Created At"
 

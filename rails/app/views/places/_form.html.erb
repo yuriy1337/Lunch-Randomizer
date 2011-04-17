@@ -5,12 +5,12 @@
   </div>
 
   <div class="group">
-    <%= f.label :category_id, t("activerecord.attributes.place.category_id", :default => "Category"), :class => :label %>
+    <%= f.label :category_id, t("activerecord.attributes.place.category_id"), :class => :label %>
     <%= f.collection_select(:category_id, Category.all_sorted, :id, :name, :include_blank => true) %><br />
   </div>
 
   <div class="group">
-    <%= f.label :is_catered, t("activerecord.attributes.place.is_catered", :default => "Caterer"), :class => :label %>
+    <%= f.label :is_catered, t("activerecord.attributes.place.is_catered"), :class => :label %>
     <%= f.check_box :is_catered, :class => 'check_box' %>
      <span class="description">Does the place provide catered meals?</span>
   </div>
