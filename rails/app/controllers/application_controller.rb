@@ -24,7 +24,4 @@ class ApplicationController < ActionController::Base
 
   end
 
-  def get_json(object)
-    render :json => object
-  end
 end
