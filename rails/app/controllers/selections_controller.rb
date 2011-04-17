@@ -4,13 +4,10 @@ class SelectionsController < ApplicationController
   # GET /selections.xml
   def index
     @selections = Selection.all(:include => {:place => :category})
-    if params[:e] == 'json'
-      to_json(@selections)
-    else
-      respond_to do |format|
-        format.html # index.html.erb
-        format.xml  { render :xml => @selections }
-      end
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @selections }
+      format.json  { render :json => @selections }
     end
   end
 
@@ -26,9 +23,10 @@ class SelectionsController < ApplicationController
       @ups = Vote.count(:conditions => {:selection_id => @selection.id, :is_up => true})
       @downs = Vote.count(:conditions => {:selection_id => @selection.id, :is_up => false})
     end
-    if
-      params[:e] == 'json'
-      to_json(@selection)
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @all }
+      format.json  { render :json => {:current_selection => @selection, :ups => @ups, :downs => @downs} }
     end
   end
   
