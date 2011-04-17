@@ -25,7 +25,7 @@ class SelectionsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @all }
-      format.json  { render :json => {:current_selection => @selection, :ups => @ups, :downs => @downs} }
+      format.json  { render :json => {:current_selection => @selection, :ups => @selection.up_votes, :downs => @selection.down_votes} }
     end
   end
   
