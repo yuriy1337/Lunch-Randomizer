@@ -6,7 +6,7 @@ en:
   web-app-theme:
     save: "Save"
     or: "or"
-    cancel:"Cancel"
+    cancel: "Cancel"
     list: "List"
     new: "New"
     edit: "Edit"
