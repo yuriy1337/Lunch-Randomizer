@@ -1,9 +1,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  name: MyString
-  description: MyText
+  name: Burgers
+  description: Yummy American Burgers
 
 two:
-  name: MyString2
-  description: MyText2
+  name: Mexican
+  description: Americanized mexican food

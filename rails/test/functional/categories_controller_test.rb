@@ -3,7 +3,7 @@ require 'test_helper'
 class CategoriesControllerTest < ActionController::TestCase
   setup do
     @category = categories(:one)
-    @update = { :name => "Mexican", :description => "Mexican cuisine" }
+    @update = { :name => "Breakfast", :description => "Breakfast foods" }
   end
 
   test "should get index" do

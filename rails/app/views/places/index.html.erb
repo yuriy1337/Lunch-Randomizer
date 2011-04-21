@@ -6,12 +6,12 @@
     </ul>
   </div>          
   <div class="content">          
-    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Places</h2>
+    <h2 class="title"><%= t("web-app-theme.all")  %> Places</h2>
     <div class="inner">
       <table class="table">
         <tr>             
           <th class="first">
-            <%= t("activerecord.attributes.place.name", :default => t("activerecord.labels.name", :default => "Name")) %>
+            <%= t("activerecord.attributes.place.name") %>
           </th>
           <th class="last">&nbsp;</th>
         </tr>
@@ -21,9 +21,9 @@
             <%= link_to place.name, place_path(place) %>
           </td>
           <td class="last">
-            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", place_path(place) %> |
+            <%= link_to "#{t("web-app-theme.show")}", place_path(place) %> |
             <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_place_path(place) %> |
-            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", place_path(place), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+            <%= link_to "#{t("web-app-theme.delete")}", place_path(place), :method => :delete, :confirm => "#{t("web-app-theme.confirm")}" %>
           </td>
         </tr>          
         <% end -%>

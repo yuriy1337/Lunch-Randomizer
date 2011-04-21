@@ -2,8 +2,8 @@
 
 one:
   date_created: 2011-04-05
-  place_id: 1
+  place: one
 
 two:
-  date_created: 2011-04-05
-  place_id: 1
+  date_created: 2011-04-06
+  place: two

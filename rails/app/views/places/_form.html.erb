@@ -13,7 +13,12 @@
 </div>
 
 <div class="group">
-  <%= label :category, :name, t("activerecord.attributes.place.category_id", :default => "Category"), :class => :label %>
+  <%= f.label :name, t("activerecord.attributes.place.name"), :class => :label %>
+  <%= f.text_field :name, :class => 'text_field' %>
+</div>
+
+<div class="group">
+  <%= label :category, :name, t("activerecord.attributes.place.category_id"), :class => :label %>
   <%= collection_select(:category, :name, Category.all_sorted, :name, :name) %><br />
   <span class="description">You may write in a category if the one you are looking for doesn't exist</span>
 </div>

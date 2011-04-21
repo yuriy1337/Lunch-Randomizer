@@ -1,11 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  name: MyString
-  category_id: 1
+  name: Red Robin
+  category: one
   is_catered: false
 
 two:
-  name: MyString1
-  category_id: 2
+  name: EBT
+  category: two
   is_catered: false

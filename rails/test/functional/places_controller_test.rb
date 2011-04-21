@@ -3,7 +3,7 @@ require 'test_helper'
 class PlacesControllerTest < ActionController::TestCase
   setup do
     @place = places(:one)
-    @update = { :name => "Red Robin", :category_id => 1 }
+    @update = { :name => "Fudds", :category => categories(:one) }
   end
 
   test "should get index" do

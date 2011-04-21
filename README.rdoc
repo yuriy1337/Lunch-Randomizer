@@ -9,5 +9,20 @@ Official site: LunchRandomizer[http://www.lunchrandomizer.com/]
 - Web-App-Theme[https://github.com/pilu/web-app-theme]
 
 ==Generating with Theme
+If you are adding any new view folders to the project please follow this and run the following command to generate the views and make sure that everything matches.
 
-  rails g web_app_theme:theme admin --theme="drastic-dark"
+  rails g web_app_theme:theme <<CONTROLLER_NAME_HERE>> --theme="drastic-dark"
+    
+==Deployment
+Run setup from your local machine
+  
+  cap deploy:setup
+  
+On the production sever you should now see a shared folder. Inside of that create a file at config/database.yml. This file will be used by your application so you don't have to check in production username's and passwords.
+
+Finally to deploy the app just run
+
+  cap deploy
+  
+===Issues
+On the current production system the bundle install fails during deployment. This is still being looked into.
