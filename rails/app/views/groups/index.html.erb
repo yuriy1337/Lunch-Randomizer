@@ -1,25 +1,48 @@
-<h1>Listing groups</h1>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", groups_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_group_path %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Groups</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>             
+          <th class="first">ID</th>
+                    <th>
+            <%= t("activerecord.attributes.group.label", :default => t("activerecord.labels.label", :default => "Label")) %>
+          </th>
+                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @groups.each do |group| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= group.id %>
+          </td>
+                    <td>
+            <%= link_to group.label, group_path(group) %>
+          </td>
+                    <td>
+            <%= group.created_at %>
+          </td>
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", group_path(group) %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_group_path(group) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", group_path(group), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
-<table>
-  <tr>
-    <th>Label</th>
-    <th>Location</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @groups.each do |group| %>
-  <tr>
-    <td><%= group.label %></td>
-    <td><%= group.location %></td>
-    <td><%= link_to 'Show', group %></td>
-    <td><%= link_to 'Edit', edit_group_path(group) %></td>
-    <td><%= link_to 'Destroy', group, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Group', new_group_path %>
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

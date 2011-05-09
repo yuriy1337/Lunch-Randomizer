@@ -1,6 +1,19 @@
-<h1>Editing groups_place</h1>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", groups_places_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_groups_place_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_groups_place_path %></li>
+    </ul>
+  </div>          
+  <div class="content">            
+    <h2 class="title"><%= t("web-app-theme.edit", :default => "Edit") %> GroupsPlace</h2>
+    <div class="inner">
+      <%= form_for @groups_place, :url => groups_place_path(@groups_place), :html => { :class => :form } do |f| -%>
+        <%= render :partial => "form", :locals => {:f => f} %>
+      <% end -%>
+    </div>
+  </div>
+</div>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @groups_place %> |
-<%= link_to 'Back', groups_places_path %>
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

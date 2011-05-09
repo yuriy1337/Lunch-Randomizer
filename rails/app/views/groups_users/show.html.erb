@@ -1,20 +1,34 @@
-<p id="notice"><%= notice %></p>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", groups_users_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_groups_user_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", groups_user_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <div class="inner">
+      
+        <p>
+          <b><%= t("activerecord.attributes.groups_user.group_id", :default => t("activerecord.labels.group_id", :default => "Group")) %>:</b>
+          <%= @groups_user.group_id %>
+        </p>
 
-<p>
-  <b>Group:</b>
-  <%= @groups_user.group_id %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.groups_user.user_id", :default => t("activerecord.labels.user_id", :default => "User")) %>:</b>
+          <%= @groups_user.user_id %>
+        </p>
 
-<p>
-  <b>User:</b>
-  <%= @groups_user.user_id %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.groups_user.is_group_admin", :default => t("activerecord.labels.is_group_admin", :default => "Is group admin")) %>:</b>
+          <%= @groups_user.is_group_admin %>
+        </p>
+      <div class="wat-cf">
+        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_groups_user_path(@groups_user), :class => "button" %> 
+        <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), groups_user_path(@groups_user), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+      </div>      
+    </div>
+  </div>
+</div>
 
-<p>
-  <b>Is group admin:</b>
-  <%= @groups_user.is_group_admin %>
-</p>
-
-
-<%= link_to 'Edit', edit_groups_user_path(@groups_user) %> |
-<%= link_to 'Back', groups_users_path %>
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

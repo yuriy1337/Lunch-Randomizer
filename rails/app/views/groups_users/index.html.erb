@@ -1,27 +1,48 @@
-<h1>Listing groups_users</h1>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", groups_users_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_groups_user_path %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> GroupsUsers</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>             
+          <th class="first">ID</th>
+                    <th>
+            <%= t("activerecord.attributes.groups_user.group_id", :default => t("activerecord.labels.group_id", :default => "Group_id")) %>
+          </th>
+                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @groups_users.each do |groups_user| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= groups_user.id %>
+          </td>
+                    <td>
+            <%= link_to groups_user.group_id, groups_user_path(groups_user) %>
+          </td>
+                    <td>
+            <%= groups_user.created_at %>
+          </td>
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", groups_user_path(groups_user) %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_groups_user_path(groups_user) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", groups_user_path(groups_user), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
-<table>
-  <tr>
-    <th>Group</th>
-    <th>User</th>
-    <th>Is group admin</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @groups_users.each do |groups_user| %>
-  <tr>
-    <td><%= groups_user.group_id %></td>
-    <td><%= groups_user.user_id %></td>
-    <td><%= groups_user.is_group_admin %></td>
-    <td><%= link_to 'Show', groups_user %></td>
-    <td><%= link_to 'Edit', edit_groups_user_path(groups_user) %></td>
-    <td><%= link_to 'Destroy', groups_user, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Groups user', new_groups_user_path %>
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

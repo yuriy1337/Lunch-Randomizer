@@ -1,25 +1,20 @@
-<%= form_for(@groups_place) do |f| %>
-  <% if @groups_place.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@groups_place.errors.count, "error") %> prohibited this groups_place from being saved:</h2>
 
-      <ul>
-      <% @groups_place.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div class="group">
+    <%= f.label :group_id, t("activerecord.attributes.groups_place.group_id", :default => "Group"), :class => :label %>
+    <%= f.text_field :group_id, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
 
-  <div class="field">
-    <%= f.label :group_id %><br />
-    <%= f.text_field :group_id %>
+  <div class="group">
+    <%= f.label :place_id, t("activerecord.attributes.groups_place.place_id", :default => "Place"), :class => :label %>
+    <%= f.text_field :place_id, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
   </div>
-  <div class="field">
-    <%= f.label :place_id %><br />
-    <%= f.text_field :place_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+        
+<div class="group navform wat-cf">
+  <button class="button" type="submit">
+    <%= image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}") %> <%= t("web-app-theme.save", :default => "Save") %>
+  </button>
+  <span class="text_button_padding"><%= t("web-app-theme.or", :default => "or") %></span>
+	<%= link_to t("web-app-theme.cancel", :default => "Cancel"), groups_places_path, :class => "text_button_padding link_button" %>
+</div>

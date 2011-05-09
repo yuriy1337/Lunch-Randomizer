@@ -1,25 +1,48 @@
-<h1>Listing groups_places</h1>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", groups_places_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_groups_place_path %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> GroupsPlaces</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>             
+          <th class="first">ID</th>
+                    <th>
+            <%= t("activerecord.attributes.groups_place.group_id", :default => t("activerecord.labels.group_id", :default => "Group_id")) %>
+          </th>
+                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @groups_places.each do |groups_place| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= groups_place.id %>
+          </td>
+                    <td>
+            <%= link_to groups_place.group_id, groups_place_path(groups_place) %>
+          </td>
+                    <td>
+            <%= groups_place.created_at %>
+          </td>
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", groups_place_path(groups_place) %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_groups_place_path(groups_place) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", groups_place_path(groups_place), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
-<table>
-  <tr>
-    <th>Group</th>
-    <th>Place</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @groups_places.each do |groups_place| %>
-  <tr>
-    <td><%= groups_place.group_id %></td>
-    <td><%= groups_place.place_id %></td>
-    <td><%= link_to 'Show', groups_place %></td>
-    <td><%= link_to 'Edit', edit_groups_place_path(groups_place) %></td>
-    <td><%= link_to 'Destroy', groups_place, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Groups place', new_groups_place_path %>
+<% content_for :sidebar, render(:partial => 'sidebar') -%>
