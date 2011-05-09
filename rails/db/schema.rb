@@ -10,11 +10,33 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110410134439) do
+ActiveRecord::Schema.define(:version => 20110509154251) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "groups", :force => true do |t|
+    t.string   "label"
+    t.string   "location"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "groups_places", :force => true do |t|
+    t.integer  "group_id"
+    t.integer  "place_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "groups_users", :force => true do |t|
+    t.integer  "group_id"
+    t.integer  "user_id"
+    t.boolean  "is_group_admin"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -30,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20110410134439) do
   create_table "selections", :force => true do |t|
     t.date    "date_created"
     t.integer "place_id"
+    t.integer "group_id"
   end
 
   create_table "sessions", :force => true do |t|

@@ -1,5 +1,11 @@
 Lunch::Application.routes.draw do
 
+  resources :groups_places
+
+  resources :groups_users
+
+  resources :groups
+
   # add the locale as part of the route
   scope "/(:locale)" do
     match '/register' => 'users#new'

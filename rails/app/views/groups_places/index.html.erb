@@ -1,0 +1,25 @@
+<h1>Listing groups_places</h1>
+
+<table>
+  <tr>
+    <th>Group</th>
+    <th>Place</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @groups_places.each do |groups_place| %>
+  <tr>
+    <td><%= groups_place.group_id %></td>
+    <td><%= groups_place.place_id %></td>
+    <td><%= link_to 'Show', groups_place %></td>
+    <td><%= link_to 'Edit', edit_groups_place_path(groups_place) %></td>
+    <td><%= link_to 'Destroy', groups_place, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Groups place', new_groups_place_path %>
