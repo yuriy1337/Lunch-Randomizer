@@ -1,6 +1,7 @@
 class Selection < ActiveRecord::Base
   validates :date_created, :uniqueness => true
   belongs_to :place
+  belongs_to :group
   has_many :votes
   attr_accessor :up_votes, :down_votes
 
